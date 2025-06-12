@@ -33,7 +33,8 @@ Muestra al usuario un mensaje en un párrafo HTML, indicándole si acertó o no 
         document.getElementById("adivinanza").innerHTML = adivinanzas[random].acertijo;
         function mostrarSoluccion(){
             let input = INPUT.value.toLowerCase();
-            document.getElementById("output").innerHTML = `${input == adivinanzas[random].solucion ? "correcto" + adivinanzas[random].emoji: "mal esto es lo correcto " + adivinanzas[random].emoji + adivinanzas[random].solucion}`;
+            document.getElementById("output").innerHTML = `${input == adivinanzas[random].solucion.toLowerCase() ? "correcto" + adivinanzas[random].emoji: "mal esto es lo correcto " + adivinanzas[random].emoji + adivinanzas[random].solucion}`;
+
         }
 
         function nuevaAdivinanza(){
