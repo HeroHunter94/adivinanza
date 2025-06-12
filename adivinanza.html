@@ -1,0 +1,48 @@
+
+<!--1.  Adivinanzas
+Dado array de objetos denominado adivinanzas, adjunto en el archivo adivinanzas.js
+
+Crea un programa que, al hacer clic en un botón, muestre al azar una adivinanza de entre las adivinanzas del array y permita al usuario ingresar la respuesta en un cuadro de texto.
+
+Muestra al usuario un mensaje en un párrafo HTML, indicándole si acertó o no la adivinanza mostrada.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinanzas</title>
+</head>
+<body>
+    
+    <h1>Adivina, Adivinador!</h1>
+    <p id = "adivinanza">Haz clic en "Nueva Adivinanza" para comenzar.</p>
+    <label for = "input"></label>
+    <input type = "text" id = "input" required>
+    <button type = "button" onclick = "mostrarSoluccion()">Mostrar Soluccion</button>
+    <button type = "button" onclick = "nuevaAdivinanza()">Nueva Adivinanza</button>
+    <p id = "output"></p>
+    <script src ="adivinanzas.js"></script>
+    <script>
+
+        const INPUT = document.getElementById("input");
+        let random;
+        const LENGTH = adivinanzas.length;
+        nuevaAdivinanza();
+        
+        document.getElementById("adivinanza").innerHTML = adivinanzas[random].acertijo;
+        function mostrarSoluccion(){
+            let input = INPUT.value.toLowerCase();
+            document.getElementById("output").innerHTML = `${input == adivinanzas[random].solucion ? "correcto" + adivinanzas[random].emoji: "mal esto es lo correcto " + adivinanzas[random].emoji + adivinanzas[random].solucion}`;
+        }
+
+        function nuevaAdivinanza(){
+            random = Math.floor(Math.random()* LENGTH);
+            console.log(random);
+            document.getElementById("adivinanza").innerHTML = "" + adivinanzas[random].acertijo;
+
+        }
+
+    </script>
+</body>
+</html>
